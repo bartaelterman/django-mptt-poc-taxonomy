@@ -1,0 +1,21 @@
+{% load mptt_tags %}
+
+<form action="{% url 'tutorial-genres' %}" method="get">
+    <dl>Max depth</dl>
+    <dd><input name="level" type="number"></dd>
+    <button class="btn btn-primary" type="submit">Search</button>
+
+</form>
+
+<ul>
+    {% recursetree genres %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>

@@ -1,0 +1,34 @@
+{% load mptt_tags %}
+
+<form action="{% url 'occurrences' %}" method="get">
+    <dl>Search taxon</dl>
+    <dd><input name="q" type="text"></dd>
+    <button class="btn btn-primary" type="submit">Search</button>
+
+</form>
+
+
+<h3>Taxa</h3>
+<p>{{ taxa|length }} taxa were included in the search:</p>
+<ul>
+    {% for taxon in taxa %}
+        <li>{{ taxon }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Taxa with descendants</h3>
+<p>{{ taxa_w_d|length }} taxa were included in the search:</p>
+<ul>
+    {% for taxon in taxa_w_d %}
+        <li>{{ taxon }}</li>
+    {% endfor %}
+</ul>
+
+<h3>{{ occ|length }} occurrences found</h3>
+<ul>
+    {% for occurrence in occ %}
+        <li>
+            {{ occurrence }}
+        </li>
+    {% endfor %}
+</ul>

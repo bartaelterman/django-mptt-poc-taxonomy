@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+venv
+*/db.sqlite3
+*/failed.json
+*/unaccepted.json
